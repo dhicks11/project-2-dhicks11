@@ -145,3 +145,138 @@ Feel free to add your own creative touches for bonus points:
 - Additional character classes beyond the three required
 - More weapon types with different properties
 - Enhanced special abilities with unique effects
+
+
+
+
+Character Abilities Showcase
+
+Course: COMP 163 – Project 2
+Author: Daylen Hicks
+Date: 11/11/2025
+AI Assistance: Guidance from ChatGPT on OOP concepts, inheritance, method overriding, and class structure. All code implementation, testing, and decisions completed by the student.
+
+Project Overview
+
+This project demonstrates the use of Object-Oriented Programming (OOP) in Python by creating a small game-like system where different characters can attack and use special abilities. The project showcases:
+
+Class inheritance: Base Character class, extended by Player, Warrior, Mage, and Rogue.
+
+Method overriding: Subclasses have customized attack() methods.
+
+Polymorphism: Same method call behaves differently for each character type.
+
+Composition: Characters can possess Weapon objects to enhance their attacks.
+
+Encapsulation: Character stats and abilities are organized into class attributes and methods.
+
+Classes
+Character
+
+Base class for all characters. Stores common attributes like name, health, strength, and magic. Provides:
+
+attack(target) – basic attack using strength.
+
+take_damage(damage) – reduces health but never below 0.
+
+display_stats() – prints character stats.
+
+Player
+
+Inherits from Character. Adds:
+
+character_class, level, experience.
+
+Overrides display_stats() to show extra info.
+
+Warrior
+
+High health and strength, low magic.
+
+Special ability: power_strike(target) – deals extra damage.
+
+Mage
+
+Low health and strength, high magic.
+
+Special ability: fireball(target) – magical attack using magic stat.
+
+Rogue
+
+Medium health, strength, and magic.
+
+Special ability: sneak_attack(target) – guaranteed critical hit.
+
+Normal attacks have a chance for critical hits.
+
+Weapon
+
+Represents a weapon a character can use (composition).
+
+Attributes: name and damage_bonus.
+
+Method: display_info() – shows weapon details.
+
+Battle System
+
+The provided SimpleBattle class allows two characters to fight.
+
+Demonstrates polymorphism by calling attack() on different character types.
+
+Displays starting stats, attacks, and final results.
+
+Note: This class is not modified; it’s only used for testing.
+
+How to Run
+
+Make sure Python 3.x is installed.
+
+Run the script in your terminal or IDE:
+
+python project2_characters.py
+
+
+To test different characters and abilities:
+
+warrior = Warrior("Sir Galahad")
+mage = Mage("Merlin")
+rogue = Rogue("Robin Hood")
+
+warrior.display_stats()
+mage.display_stats()
+rogue.display_stats()
+
+# Test attacks
+dummy = Character("Target Dummy", 100, 0, 0)
+warrior.attack(dummy)
+mage.attack(dummy)
+rogue.attack(dummy)
+
+# Test special abilities
+warrior.power_strike(dummy)
+mage.fireball(dummy)
+rogue.sneak_attack(dummy)
+
+# Test battle system
+battle = SimpleBattle(warrior, mage)
+battle.fight()
+
+Key Concepts Learned
+
+Designing a class hierarchy and using inheritance.
+
+Implementing polymorphism and method overriding.
+
+Using composition for objects like weapons.
+
+Writing modular, reusable, and maintainable code.
+
+Testing OOP concepts in a simulated battle system.
+
+Notes
+
+All code was written and tested by the student.
+
+AI assistance was limited to guidance on structure and concepts, not writing code.
+
+The project can be extended with additional character classes, abilities, or battle mechanics.
